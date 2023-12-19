@@ -20,6 +20,18 @@ class _ConnectWithAiViewState extends State<ConnectWithAiView> {
 
   var textController = TextEditingController();
 
+  @override
+  void initState() {
+    super.initState();
+     sayHello();
+  }
+
+  sayHello(){
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+              // aiChatController.getgeminiResponse("Hey Gemini!");
+     });
+  }
+
   
 
 
@@ -67,6 +79,7 @@ class _ConnectWithAiViewState extends State<ConnectWithAiView> {
                       Container(
                          width: size.width * 0.8,
                         child: Markdown(
+                          physics: NeverScrollableScrollPhysics(),
                                   data: aiChatController.chatList[index].answer,
                                   selectable: true,
                                   shrinkWrap: true,
@@ -88,7 +101,7 @@ class _ConnectWithAiViewState extends State<ConnectWithAiView> {
         }
       ),
       bottomNavigationBar: Padding(
-         padding: EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom + 15),
+         padding: EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom + 10),
         child: Container(
          child: Row(
            children: [
@@ -105,8 +118,9 @@ class _ConnectWithAiViewState extends State<ConnectWithAiView> {
                   ),
                     decoration: InputDecoration(
                       hintText: "Type here...",
+                      contentPadding: EdgeInsets.symmetric(vertical: 10,horizontal: 10),
                       border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(50)
+                        borderRadius: BorderRadius.circular(10)
                       )
                     ),
                  ),
@@ -119,19 +133,23 @@ class _ConnectWithAiViewState extends State<ConnectWithAiView> {
                 width: 50,
                 child: Row(
                   children: [
-                    CircularProgressIndicator(
-                      color: Colors.blue,
-                    ),
+                    // CircularProgressIndicator(
+                    //   color: Colors.blue,
+                    // ),
+                    Image.asset("assets/images/loader.gif")
+
                   ],
                 ),
-              )  :InkWell(
-                  onTap: (){
-                    String question = textController.text;
-                    textController.clear();
-                    aiChatController.getgeminiResponse(question);
-                     
-                  },
-                  child: Image.asset("assets/images/send (1).png",height: 55,)),
+              )  :Padding(
+                padding: const EdgeInsets.only(right: 15),
+                child: InkWell(
+                    onTap: (){
+                      String question = textController.text;
+                      textController.clear();
+                      aiChatController.getgeminiResponse(question);
+                    },
+                    child: Image.asset("assets/images/send (1).png",height: 55,)),
+              ),
               ))
            ],
          ),
