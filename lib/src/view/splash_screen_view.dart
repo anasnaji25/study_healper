@@ -28,10 +28,10 @@ class _SpashScreenViewState extends State<SpashScreenView> {
     child: AnimatedTextKit(
       totalRepeatCount: 1,
       animatedTexts: [
-        TypewriterAnimatedText('Heyy ....!'),
+        TypewriterAnimatedText('Heyy ...!'),
         TypewriterAnimatedText('Its Me Friday'),
         TypewriterAnimatedText('Your personal AI'),
-        // TypewriterAnimatedText('With lots of love ♡'),
+        // TypewriterAnimatedText('Made With lots of love ♡'),
       ],
       onTap: () {
         print("Tap Event");

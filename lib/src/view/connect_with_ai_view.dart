@@ -6,7 +6,6 @@ import 'package:study_helper/src/const/app_fonts.dart';
 import 'package:study_helper/src/controller/ai_chat_controller.dart';
 
 
-
 class ConnectWithAiView extends StatefulWidget {
   const ConnectWithAiView({super.key});
 
@@ -19,6 +18,8 @@ class _ConnectWithAiViewState extends State<ConnectWithAiView> {
   final aiChatController = Get.find<AIchatController>();
 
   var textController = TextEditingController();
+
+  
 
   @override
   void initState() {
@@ -118,7 +119,7 @@ class _ConnectWithAiViewState extends State<ConnectWithAiView> {
                   ),
                     decoration: InputDecoration(
                       hintText: "Type here...",
-                      contentPadding: EdgeInsets.symmetric(vertical: 10,horizontal: 10),
+                      contentPadding: const EdgeInsets.symmetric(vertical: 10,horizontal: 10),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10)
                       )
@@ -128,7 +129,7 @@ class _ConnectWithAiViewState extends State<ConnectWithAiView> {
              ),
              Expanded(
               flex: 1,
-              child: Obx(()=>aiChatController.isLoading.isTrue ? Container(
+              child: Obx(() => aiChatController.isLoading.isTrue ? Container(
                 height: 55,
                 width: 50,
                 child: Row(
