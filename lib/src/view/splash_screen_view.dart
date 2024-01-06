@@ -29,7 +29,7 @@ class _SpashScreenViewState extends State<SpashScreenView> {
       totalRepeatCount: 1,
       animatedTexts: [
         TypewriterAnimatedText('Heyy ...!'),
-        TypewriterAnimatedText('Its Me Friday'),
+        TypewriterAnimatedText('Its Me Friday v2.0'),
         TypewriterAnimatedText('Your personal AI'),
         // TypewriterAnimatedText('Made With lots of love ♡'),
       ],

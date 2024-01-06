@@ -2,7 +2,7 @@
 
 class ChatModel {
 String question;
-String answer;
+String? answer;
 
 ChatModel(
   {
